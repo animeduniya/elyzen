@@ -45,10 +45,10 @@ const fetchZoroAnime = async (
 ) => {
   try {
     const cleanEpisodeId = episodeId.replace(/\/watch\//g, '');
-    const response = await fetch(
-      `${process.env.HIANIME_API}/anime/episode-srcs?id=${cleanEpisodeId}&server=vidstreaming&category=${subType}`
-    );
-    const data = response.json();
+    const resp = await fetch(
+  "/api/v2/hianime/episode/sources?animeEpisodeId=steinsgate-3?ep=230&server=hd-1&category=dub"
+);
+const data = await resp.json();
     return data;
   } catch (error) {
     await fetchAnifyAnime(id, episodeId, episodeNumber, provider, subType);
